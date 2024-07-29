@@ -87,7 +87,7 @@ if not os.path.exists(args.save_dir):
 
 import csv
 
-file = open("harmful_corpus/derogatory_corpus.csv", "r", encoding='utf-8')
+file = open("harmful_corpus/derogatory_corpus.csv", "r")
 data = list(csv.reader(file, delimiter=","))
 file.close()
 targets = []

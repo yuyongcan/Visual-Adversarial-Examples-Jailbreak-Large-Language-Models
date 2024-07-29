@@ -142,14 +142,13 @@ class Attacker:
             if t % 20 == 0:
                 self.plot_loss()
 
-            if t % 20 == 0:
+            if t % 100 == 0:
                 print('######### Output - Iter = %d ##########' % t)
                 x_adv = x + adv_noise
                 x_adv = normalize(x_adv)
                 prompt.update_img_prompts([[x_adv]])
                 prompt.img_embs = prompt.img_embs * batch_size
                 prompt.update_context_embs()
-                print(prompt)
                 with torch.no_grad():
                     response, _ = my_generator.generate(prompt)
                 print('>>>', response)
